@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./asset/index.css">
+    <title>Fast Devis</title>
+</head>
+<body>
+    <div class="title-container">
+        <h2 class="title">Fast Devis</h2>
+    </div>
+    <div class="facturation">
+        <div class="Barem-container">
+            <div class="titleBarem">Barème</div>
+            <div class="Kilometrage">
+                <div class="category">Kilométrage :</div>
+                <ul class="list">
+                    <li>1 Km = <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€</span></div></li>
+                </ul>
+            </div>
+            <div class="type">
+                <div class="category">Type de nettoyage :</div>
+                <ul class="list">
+                    <li>Normal : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li>Corde : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li>Échelle : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li>Nacelle : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li>Perche : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li>Eau pure : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€ / m²</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="devis-container">
+            <div class="devis-section">
+                <div class="titleBarem">Dépense</div>
+                <div class="Kilometrage">
+                    <div class="category">Kilomètre :</div>
+                    <ul class="list">
+                        <li>Kilomètre : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">km</span></div></li>
+                        <li>Péage : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">€</span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="devis-section">
+                <div class="titleBarem">Facturation</div>
+                <div class="Kilometrage">
+                    <div class="category">Surface vitrée :</div>
+                    <ul class="list">
+                        <li>Surface vitrée : <div class="input-container"><input type="number" class="currency-input"><span class="currency-symbol">m²</span></div></li>
+                    </ul>
+                </div>
+                <div class="type">
+                    <div class="category">Type de nettoyage :</div>
+                    <ul>
+                        <li>Normal: 
+                            <input type="checkbox" class="single-checkbox" id="normal-yes" name="normal">
+                            <label for="normal-yes">oui</label>
+                            <input type="checkbox" class="single-checkbox" id="normal-no" name="normal">
+                            <label for="normal-no">non</label>
+                        </li>
+                        <li>Perche: 
+                            <input type="checkbox" class="single-checkbox" id="perche-yes" name="perche">
+                            <label for="perche-yes">oui</label>
+                            <input type="checkbox" class="single-checkbox" id="perche-no" name="perche">
+                            <label for="perche-no">non</label>
+                        </li>
+                        <li>Échelle: 
+                            <input type="checkbox" class="single-checkbox" id="echelle-yes" name="echelle">
+                            <label for="echelle-yes">oui</label>
+                            <input type="checkbox" class="single-checkbox" id="echelle-no" name="echelle">
+                            <label for="echelle-no">non</label>
+                        </li>
+                        <li>Nacelle: 
+                            <input type="checkbox" class="single-checkbox" id="nacelle-yes" name="nacelle">
+                            <label for="nacelle-yes">oui</label>
+                            <input type="checkbox" class="single-checkbox" id="nacelle-no" name="nacelle">
+                            <label for="nacelle-no">non</label>
+                        </li>
+                        <li>Eau pure: 
+                            <input type="checkbox" class="single-checkbox" id="eau-yes" name="eau">
+                            <label for="eau-yes">oui</label>
+                            <input type="checkbox" class="single-checkbox" id="eau-no" name="eau">
+                            <label for="eau-no">non</label>
+                        </li>
+                    </ul>                    
+                </div>
+            </div>
+            <div class="devis-section">
+                <div class="titleBarem">TOTAL</div>
+                <div class="Kilometrage">
+                    <ul class="list">
+                        <li>Dépense: <div class="input-container"><span class="currency-symbol">€</span></div></li>
+                        <li>Facturation: <div class="input-container"><span class="currency-symbol">€</span></div></li>
+                        <li>Total: <div class="input-container"><span class="currency-symbol">€</span></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./asset/index.js"></script>
+</body>
+</html>
