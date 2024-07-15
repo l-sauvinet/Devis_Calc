@@ -1,13 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const checkboxes = document.querySelectorAll('.single-checkbox');
+    const items = document.querySelectorAll('li');
 
-    checkboxes.forEach(function(checkbox) {
-        checkbox.addEventListener('change', function() {
-            checkboxes.forEach(function(otherCheckbox) {
-                if (otherCheckbox !== checkbox) {
-                    otherCheckbox.checked = false;
-                }
-            });
+    items.forEach(function(item) {
+        const yesCheckbox = item.querySelector('.yes-checkbox');
+        const noCheckbox = item.querySelector('.no-checkbox');
+
+        yesCheckbox.addEventListener('change', function() {
+            if (yesCheckbox.checked) {
+                noCheckbox.checked = false;
+            }
+        });
+
+        noCheckbox.addEventListener('change', function() {
+            if (noCheckbox.checked) {
+                yesCheckbox.checked = false;
+            }
         });
     });
 });

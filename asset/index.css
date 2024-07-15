@@ -159,25 +159,54 @@ body {
     border-radius: 5px;
 }
 
-.single-checkbox {
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+li label {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+/* Hide the radio buttons */
+.yes-radio,
+.no-radio {
     display: none;
 }
 
-.single-checkbox + label {
+/* Style the labels */
+.yes-radio + label,
+.no-radio + label {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 10px 20px;
     cursor: pointer;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.single-checkbox:checked + label {
+/* Style the labels when the radio buttons are checked */
+.yes-radio:checked + label {
     background-color: #4CAF50;
     color: white;
 }
 
-.single-checkbox:checked + label + .single-checkbox {
-    display: none; /* Masque la checkbox opposée quand une est cochée */
+.no-radio:checked + label {
+    background-color: #F44336;
+    color: white;
+}
+
+/* Hover effects for labels */
+.yes-radio + label:hover,
+.no-radio + label:hover {
+    background-color: #e0e0e0;
 }
