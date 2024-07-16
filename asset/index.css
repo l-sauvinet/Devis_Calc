@@ -4,209 +4,220 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #5C5C5C;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 75px;
+    margin-top: 100px;
+    text-align: center;
 }
 
 .title {
     color: white;
-    font-size: 60px;
-    font-family: "Jockey One", sans-serif;
+    font-size: 50px;
 }
 
 .facturation {
     display: flex;
     justify-content: center;
-    align-items: center;
-    align-items: center;
-    margin-top: 25px;
+    margin-top: 50px;
+    gap: 100px; /* Espace de 100px entre les modales */
 }
 
-.Barem-container,
-.devis-container {
+.bareme-container, .devis-container {
     background-color: white;
-    border-radius: 25px;
+    height: 550px; /* Vous pouvez ajuster la hauteur ici */
+    flex-grow: 1; /* La largeur sera automatique et s'adaptera */
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-.Barem-container {
-    width: 300px;
+/* Styles spécifiques pour le contenu de bareme-container */
+.bareme-container .titleBarem {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bareme-container .kilometrage, 
+.bareme-container .type {
+    margin-bottom: 20px;
+}
+
+.bareme-container .category {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.bareme-container .list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bareme-container .list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bareme-container .input-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.bareme-container .currency-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.bareme-container .currency-symbol {
+    font-size: 16px;
+}
+
+/* Styles spécifiques pour le contenu de devis-container */
+.devis-container .devis-section {
+    margin-bottom: 20px;
+}
+
+.devis-container .titleBarem {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.devis-container .kilometrage, 
+.devis-container .type {
+    margin-bottom: 20px;
+}
+
+.devis-container .category {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.devis-container .list {
+list-style-type: none;
+padding: 0;
+}
+
+.devis-container .list li {
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+}
+
+.devis-container .input-container {
+display: flex;
+align-items: center;
+margin-left: 10px;
+}
+
+.devis-container .currency-input {
+width: 60px;
+padding: 5px;
+margin-right: 5px;
+}
+
+.devis-container .currency-symbol {
+font-size: 16px;
+}
+
+
+.depense .list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.depense-list{
     margin-right: 50px;
 }
 
-.devis-container {
+.type-list{
     display: flex;
-    width: 900px;
+    align-items: center;
     justify-content: space-between;
 }
 
-.titleBarem {
-    font-size: 30px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.Kilometrage,
-.type {
-    margin-bottom: 20px;
-}
-
-.category {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.list {
+.all-list-type{
+    padding-left: 5px;
+    padding-right: 100px;
     list-style: none;
-    padding: 0;
 }
 
-.list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    position: relative;
-}
-
-.input-container {
-    position: relative;
-    display: inline-block;
-}
-
-.currency-input {
-    height: 35px;
-    width: 150px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 5px;
-    padding-right: 25px; /* espace pour le symbole € */
-}
-
-.currency-symbol {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #333;
-    pointer-events: none; /* pour éviter que le clic ne sélectionne le symbole */
-    font-size: 18px;
-}
-
-.devis-section {
-    width: 30%;
-}
-
-.devis-section h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.input-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.cleaning-type div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.yes-button, .no-button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.yes-button {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.no-button {
-    background-color: #F44336;
-    color: white;
-}
-
-.summary-item {
-    width: 100%;
-    height: 35px;
-    background-color: #ddd;
-    margin-bottom: 10px;
+.total .list{
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 10px;
-    border-radius: 5px;
+    justify-content: center;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.total-list{
+    margin-right: 50px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
     margin: 0;
 }
-
-li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
-li label {
-    margin-left: 10px;
-    margin-right: 20px;
+.name-list{
+    width: 75px;
 }
 
-/* Hide the radio buttons */
-.yes-radio,
-.no-radio {
+input[type="radio"] {
     display: none;
 }
 
-/* Style the labels */
-.yes-radio + label,
-.no-radio + label {
-    display: inline-block;
-    padding: 10px 20px;
+/* Style des étiquettes comme des boutons */
+label {
+    padding: 5px 10px;
     cursor: pointer;
-    background-color: #f0f0f0;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 5px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Style the labels when the radio buttons are checked */
-.yes-radio:checked + label {
+/* Style des boutons non sélectionnés */
+label[for="normal-yes"],
+label[for="corde-yes"],
+label[for="perche-yes"],
+label[for="echelle-yes"],
+label[for="nacelle-yes"],
+label[for="eau-yes"],
+label[for="cadre-yes"],
+label[for="normal-no"],
+label[for="corde-no"],
+label[for="perche-no"],
+label[for="echelle-no"],
+label[for="nacelle-no"],
+label[for="eau-no"],
+label[for="cadre-no"] {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Style des boutons sélectionnés */
+input[type="radio"]:checked + label {
     background-color: #4CAF50;
     color: white;
+    border: 1px solid #4CAF50;
 }
 
-.no-radio:checked + label {
-    background-color: #F44336;
-    color: white;
-}
 
-/* Hover effects for labels */
-.yes-radio + label:hover,
-.no-radio + label:hover {
-    background-color: #e0e0e0;
+.category-list{
 }
