@@ -28,6 +28,7 @@
                     <li><div class="name-list">Nacelle :</div><div class="input-container"><input type="number" id="input-nacelle" class="currency-input nacelle"><span class="currency-symbol">€ / m²</span></div></li>
                     <li><div class="name-list">Perche :</div><div class="input-container"><input type="number" id="input-perche" class="currency-input perche"><span class="currency-symbol">€ / m²</span></div></li>
                     <li><div class="name-list">Eau pure :</div><div class="input-container"><input type="number" id="input-eauPure" class="currency-input eauPure"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">BSO :</div><div class="input-container"><input type="number" id="input-BSO" class="currency-input BSO"><span class="currency-symbol">€ / m²</span></div></li>
                 </ul>
             </div>
         </div>
@@ -36,9 +37,28 @@
                 <div class="titleBarem">Dépense</div>
                 <div class="depense">
                     <ul class="list">
-                        <li class="depense-list">Kilomètre : <div class="input-container"><input type="number" id="input-km2"  class="currency-input"><span class="currency-symbol">km</span></div></li>
-                        <li class="depense-list">Péage : <div class="input-container"><input type="number" id="input-peage" class="currency-input"><span class="currency-symbol">€</span></div></li>
-                        <li class="depense-list">Repas : <div class="input-container"><input type="number" id="input-repas" class="currency-input"><span class="currency-symbol">€</span></div></li>
+                        <li class="depense-list">
+                            Kilomètre : 
+                            <div class="input-container">
+                                <input type="number" id="input-km2"  class="currency-input">
+                                <span class="currency-symbol">km</span>
+                            </div>
+                        </li>
+                        <li class="depense-list">
+                            Péage : 
+                            <div class="input-container">
+                                <input type="number" id="input-peage" class="currency-input">
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="depense-list">
+                            Repas : 
+                            <div class="input-container">
+                                <input type="number" id="input-repas" class="currency-input">
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="depense-list">Location Nacelle : <div class="input-container"><input type="number" id="input-location" class="currency-input"><span class="currency-symbol">€</span></div></li>
                     </ul>
                 </div>
             </div>
@@ -121,6 +141,16 @@
                                 <label for="checkbox-eau">+ Encadrement</label>
                             </div> 
                         </li>
+                        <li>
+                            <div class="type-list-BSO">
+                                <div class="name-list">BSO:</div>
+                                <input type="radio" class="yes-radio" id="BSO-yes" name="BSO" value="yes">
+                                <label for="BSO-yes">oui</label>
+                                <input type="radio" class="no-radio" id="BSO-no" name="BSO" value="no" checked>
+                                <label for="BSO-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input BSO2" id="input-BSO2" disabled><span class="currency-symbol">m²</span></div>
+                            </div> 
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -128,9 +158,27 @@
                 <div class="titleBarem">TOTAL</div>
                 <div class="total">
                     <ul class="list">
-                        <li class="total-list">Dépense: <div class="input-container"><input type="number" class="currency-input total-depense" id="input-total-depense" disabled><span class="currency-symbol">€</span></div></li>
-                        <li class="total-list">Facturation: <div class="input-container"><input type="number" class="currency-input total-facturation" id="input-total-facturation" disabled><span class="currency-symbol">€</span></div></li>
-                        <li class="total-list">Total: <div class="input-container"><input type="number" class="currency-input total-total" id="input-total-total" disabled><span class="currency-symbol">€</span></div></li>
+                        <li class="total-list">
+                            Dépense: 
+                            <div class="input-container">
+                                <input type="number" placeholder="0,00" class="currency-input total-depense" id="input-total-depense" disabled>
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="total-list">
+                            Facturation: 
+                            <div class="input-container">
+                                <input type="number" placeholder="0,00" class="currency-input total-facturation" id="input-total-facturation" disabled>
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="total-list"
+                        >Total: 
+                        <div class="input-container">
+                            <input type="number" placeholder="0,00" class="currency-input total-total" id="input-total-total" disabled>
+                            <span class="currency-symbol">€</span>
+                        </div>
+                    </li>
                     </ul>
                 </div>
             </div>

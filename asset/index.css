@@ -141,12 +141,19 @@ font-size: 16px;
 }
 
 .depense-list{
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 .type-list{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.type-list-BSO{
+    display: flex;
+    align-items: center;
+    margin-right: 237px;
     justify-content: space-between;
 }
 
@@ -200,13 +207,15 @@ label[for="echelle-yes"],
 label[for="nacelle-yes"],
 label[for="eau-yes"],
 label[for="cadre-yes"],
+label[for="BSO-yes"],
 label[for="normal-no"],
 label[for="corde-no"],
 label[for="perche-no"],
 label[for="echelle-no"],
 label[for="nacelle-no"],
 label[for="eau-no"],
-label[for="cadre-no"] {
+label[for="cadre-no"],
+label[for="BSO-no"]{
     background-color: #f0f0f0;
     color: #333;
 }

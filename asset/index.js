@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             { input1: 'input-echelle', input2: 'input-echelle2', checkbox: 'checkbox-echelle' },
             { input1: 'input-nacelle', input2: 'input-nacelle2', checkbox: 'checkbox-nacelle' },
             { input1: 'input-perche', input2: 'input-perche2', checkbox: 'checkbox-perche' },
-            { input1: 'input-eauPure', input2: 'input-eauPure2', checkbox: 'checkbox-eau' }
+            { input1: 'input-eauPure', input2: 'input-eauPure2', checkbox: 'checkbox-eau' },
+            { input1: 'input-BSO', input2: 'input-BSO2' }
         ];
 
         // Calculer les résultats
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const checkbox = document.getElementById(pair.checkbox);
 
             let result = input1 * input2;
-            if (checkbox.checked) {
+            if (checkbox && checkbox.checked) {
                 result *= 2;
             }
             totalFacturation += result; // Ajouter le résultat au total facturation
@@ -55,8 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTotalTotal();
     }
 
-    // Identifiants des inputs à sauvegarder
-    const inputIds = [
+    // Identifiants des inputs à sauvegarder dans le localStorage
+    const baremeInputIds = [
         'input-km',
         'input-normal',
         'input-corde',
@@ -64,19 +65,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'input-nacelle',
         'input-perche',
         'input-eauPure',
-        'input-normal2',
-        'input-corde2',
-        'input-echelle2',
-        'input-nacelle2',
-        'input-perche2',
-        'input-eauPure2'
+        'input-BSO'
     ];
 
     // Charger les valeurs depuis le localStorage lors du chargement de la page
-    inputIds.forEach(loadFromLocalStorage);
+    baremeInputIds.forEach(loadFromLocalStorage);
 
     // Ajouter des écouteurs d'événements pour sauvegarder les valeurs lorsque l'utilisateur les change
-    inputIds.forEach(id => {
+    baremeInputIds.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
             element.addEventListener('input', () => {
@@ -116,12 +112,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputNacelle2 = document.getElementById('input-nacelle2');
     const inputEauPure = document.getElementById('input-eauPure');
     const inputEauPure2 = document.getElementById('input-eauPure2');
+    const inputBSO = document.getElementById('input-BSO');
+    const inputBSO2 = document.getElementById('input-BSO2');
     const inputTotalFacturation = document.getElementById('input-total-facturation');
 
     const inputKm = document.getElementById('input-km');
     const inputKm2 = document.getElementById('input-km2');
     const inputPeage = document.getElementById('input-peage');
     const inputRepas = document.getElementById('input-repas');
+    const inputLocation = document.getElementById('input-location');
     const inputTotalDepense = document.getElementById('input-total-depense');
 
     const inputTotalTotal = document.getElementById('input-total-total');
@@ -140,13 +139,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const nacelle2Value = parseFloat(inputNacelle2.value) || 0;
         const eauPureValue = parseFloat(inputEauPure.value) || 0;
         const eauPure2Value = parseFloat(inputEauPure2.value) || 0;
+        const BSOValue = parseFloat(inputBSO.value) || 0;
+        const BSO2Value = parseFloat(inputBSO2.value) || 0;
 
         const totalFacturation = (normalValue * normal2Value) +
                                 (percheValue * perche2Value) +
                                 (echelleValue * echelle2Value) +
                                 (nacelleValue * nacelle2Value) +
                                 (eauPureValue * eauPure2Value) +
-                                (cordeValue * corde2Value);
+                                (cordeValue * corde2Value) +
+                                (BSOValue * BSO2Value);
 
         inputTotalFacturation.value = totalFacturation.toFixed(2);
         updateTotalTotal(); // Mise à jour du total général
@@ -158,8 +160,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const km2Value = parseFloat(inputKm2.value) || 0;
         const peageValue = parseFloat(inputPeage.value) || 0;
         const repasValue = parseFloat(inputRepas.value) || 0;
+        const locaitonValue = parseFloat(inputLocation.value) || 0;
 
-        const totalDepense = (kmValue * km2Value) + peageValue + repasValue;
+        const totalDepense = (kmValue * km2Value) + peageValue + repasValue + locaitonValue;
 
         inputTotalDepense.value = totalDepense.toFixed(2);
         updateTotalTotal(); // Mise à jour du total général
@@ -188,11 +191,13 @@ document.addEventListener('DOMContentLoaded', function() {
     inputNacelle2.addEventListener('input', updateTotalFacturation);
     inputEauPure.addEventListener('input', updateTotalFacturation);
     inputEauPure2.addEventListener('input', updateTotalFacturation);
-
+    inputBSO.addEventListener('input', updateTotalFacturation);
+    inputBSO2.addEventListener('input', updateTotalFacturation);
     inputKm.addEventListener('input', updateTotalDepense);
     inputKm2.addEventListener('input', updateTotalDepense);
     inputPeage.addEventListener('input', updateTotalDepense);
     inputRepas.addEventListener('input', updateTotalDepense);
+    inputLocation.addEventListener('input', updateTotalDepense);
 
     const yesRadios = document.querySelectorAll('.yes-radio');
     const noRadios = document.querySelectorAll('.no-radio');
