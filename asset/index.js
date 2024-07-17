@@ -222,6 +222,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    
+    yesRadios.forEach(yesRadio => {
+        yesRadio.addEventListener('change', function() {
+            const input = this.closest('.type-list-BSO').querySelector('.currency-input');
+            if (this.checked) {
+                input.disabled = false;
+            }
+            updateTotalFacturation();
+        });
+    });
+
+    noRadios.forEach(noRadio => {
+        noRadio.addEventListener('change', function() {
+            const input = this.closest('.type-list-BSO').querySelector('.currency-input');
+            if (this.checked) {
+                input.disabled = true;
+            }
+            updateTotalFacturation();
+        });
+    });
+
     // Appeler calculateAndDisplayResult lors du chargement de la page pour initialiser les valeurs
     calculateAndDisplayResult();
 });

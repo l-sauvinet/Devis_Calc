@@ -33,9 +33,19 @@ body {
     gap: 100px; /* Espace de 100px entre les modales */
 }
 
-.bareme-container, .devis-container {
+.bareme-container{
     background-color: white;
-    height: 550px; /* Vous pouvez ajuster la hauteur ici */
+    height: 550px;
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.devis-container {
+    background-color: white;
+    height: 550px;
+    width: 782px; /* Vous pouvez ajuster la hauteur ici */
     flex-grow: 1; /* La largeur sera automatique et s'adaptera */
     padding: 20px;
     border-radius: 10px;
