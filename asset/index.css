@@ -153,8 +153,8 @@ font-size: 16px;
 .type-list-BSO{
     display: flex;
     align-items: center;
-    margin-right: 237px;
     justify-content: space-between;
+    margin-right: 237px;
 }
 
 .all-list-type{
