@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour gérer la multiplication par deux si la checkbox est cochée
     function calculateAndDisplayResult() {
-        // Identifiants des inputs et des checkboxes correspondants
         const inputCheckboxPairs = [
             { input1: 'input-normal', input2: 'input-normal2', checkbox: 'checkbox-normal' },
             { input1: 'input-corde', input2: 'input-corde2', checkbox: 'checkbox-corde' },
@@ -31,9 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { input1: 'input-BSO', input2: 'input-BSO2' }
         ];
 
-        // Calculer les résultats
-        let totalFacturation = 0; // Initialiser le total facturation
-
+        let totalFacturation = 0;
         inputCheckboxPairs.forEach(pair => {
             const input1 = parseFloat(document.getElementById(pair.input1).value) || 0;
             const input2 = parseFloat(document.getElementById(pair.input2).value) || 0;
@@ -43,20 +40,24 @@ document.addEventListener('DOMContentLoaded', function() {
             if (checkbox && checkbox.checked) {
                 result *= 2;
             }
-            totalFacturation += result; // Ajouter le résultat au total facturation
+            totalFacturation += result;
         });
 
-        // Mettre à jour l'input total-facturation avec le nouveau total
+        const frequencySelect = document.getElementById('frequency-select');
+        const discountFactor = parseFloat(frequencySelect.value) || 1;
+
+        // Appliquer le facteur de réduction
+        const discountedTotal = totalFacturation * discountFactor;
+
+        // Mettre à jour l'élément HTML avec le total facturé
         const inputTotalFacturation = document.getElementById('input-total-facturation');
         if (inputTotalFacturation) {
-            inputTotalFacturation.value = totalFacturation.toFixed(2);
+            inputTotalFacturation.value = discountedTotal.toFixed(2);
         }
 
-        // Mettre à jour les totaux
         updateTotalTotal();
     }
 
-    // Identifiants des inputs à sauvegarder dans le localStorage
     const baremeInputIds = [
         'input-km',
         'input-normal',
@@ -68,10 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'input-BSO'
     ];
 
-    // Charger les valeurs depuis le localStorage lors du chargement de la page
     baremeInputIds.forEach(loadFromLocalStorage);
 
-    // Ajouter des écouteurs d'événements pour sauvegarder les valeurs lorsque l'utilisateur les change
     baremeInputIds.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
@@ -82,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Ajouter des écouteurs d'événements pour les checkboxes
     const checkboxIds = [
         'checkbox-normal',
         'checkbox-corde',
@@ -99,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Sélectionner les éléments nécessaires
     const inputNormal = document.getElementById('input-normal');
     const inputNormal2 = document.getElementById('input-normal2');
     const inputPerche = document.getElementById('input-perche');
@@ -125,50 +122,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const inputTotalTotal = document.getElementById('input-total-total');
 
-    // Fonction pour mettre à jour le champ total-facturation
-    function updateTotalFacturation() {
-        const normalValue = parseFloat(inputNormal.value) || 0;
-        const normal2Value = parseFloat(inputNormal2.value) || 0;
-        const cordeValue = parseFloat(inputCorde.value) || 0;
-        const corde2Value = parseFloat(inputCorde2.value) || 0;
-        const percheValue = parseFloat(inputPerche.value) || 0;
-        const perche2Value = parseFloat(inputPerche2.value) || 0;
-        const echelleValue = parseFloat(inputEchelle.value) || 0;
-        const echelle2Value = parseFloat(inputEchelle2.value) || 0;
-        const nacelleValue = parseFloat(inputNacelle.value) || 0;
-        const nacelle2Value = parseFloat(inputNacelle2.value) || 0;
-        const eauPureValue = parseFloat(inputEauPure.value) || 0;
-        const eauPure2Value = parseFloat(inputEauPure2.value) || 0;
-        const BSOValue = parseFloat(inputBSO.value) || 0;
-        const BSO2Value = parseFloat(inputBSO2.value) || 0;
-
-        const totalFacturation = (normalValue * normal2Value) +
-                                (percheValue * perche2Value) +
-                                (echelleValue * echelle2Value) +
-                                (nacelleValue * nacelle2Value) +
-                                (eauPureValue * eauPure2Value) +
-                                (cordeValue * corde2Value) +
-                                (BSOValue * BSO2Value);
-
-        inputTotalFacturation.value = totalFacturation.toFixed(2);
-        updateTotalTotal(); // Mise à jour du total général
-    }
-
-    // Fonction pour mettre à jour le champ input-total-depense
     function updateTotalDepense() {
         const kmValue = parseFloat(inputKm.value) || 0;
         const km2Value = parseFloat(inputKm2.value) || 0;
         const peageValue = parseFloat(inputPeage.value) || 0;
         const repasValue = parseFloat(inputRepas.value) || 0;
-        const locaitonValue = parseFloat(inputLocation.value) || 0;
+        const locationValue = parseFloat(inputLocation.value) || 0;
 
-        const totalDepense = (kmValue * km2Value) + peageValue + repasValue + locaitonValue;
+        const totalDepense = (kmValue * km2Value) + peageValue + repasValue + locationValue;
 
         inputTotalDepense.value = totalDepense.toFixed(2);
-        updateTotalTotal(); // Mise à jour du total général
+        updateTotalTotal();
     }
 
-    // Fonction pour mettre à jour le champ input-total-total
     function updateTotalTotal() {
         const totalDepense = parseFloat(inputTotalDepense.value) || 0;
         const totalFacturation = parseFloat(inputTotalFacturation.value) || 0;
@@ -178,21 +144,20 @@ document.addEventListener('DOMContentLoaded', function() {
         inputTotalTotal.value = totalTotal.toFixed(2);
     }
 
-    // Écouter les changements dans les inputs
-    inputNormal.addEventListener('input', updateTotalFacturation);
-    inputNormal2.addEventListener('input', updateTotalFacturation);
-    inputCorde.addEventListener('input', updateTotalFacturation);
-    inputCorde2.addEventListener('input', updateTotalFacturation);
-    inputPerche.addEventListener('input', updateTotalFacturation);
-    inputPerche2.addEventListener('input', updateTotalFacturation);
-    inputEchelle.addEventListener('input', updateTotalFacturation);
-    inputEchelle2.addEventListener('input', updateTotalFacturation);
-    inputNacelle.addEventListener('input', updateTotalFacturation);
-    inputNacelle2.addEventListener('input', updateTotalFacturation);
-    inputEauPure.addEventListener('input', updateTotalFacturation);
-    inputEauPure2.addEventListener('input', updateTotalFacturation);
-    inputBSO.addEventListener('input', updateTotalFacturation);
-    inputBSO2.addEventListener('input', updateTotalFacturation);
+    inputNormal.addEventListener('input', calculateAndDisplayResult);
+    inputNormal2.addEventListener('input', calculateAndDisplayResult);
+    inputCorde.addEventListener('input', calculateAndDisplayResult);
+    inputCorde2.addEventListener('input', calculateAndDisplayResult);
+    inputPerche.addEventListener('input', calculateAndDisplayResult);
+    inputPerche2.addEventListener('input', calculateAndDisplayResult);
+    inputEchelle.addEventListener('input', calculateAndDisplayResult);
+    inputEchelle2.addEventListener('input', calculateAndDisplayResult);
+    inputNacelle.addEventListener('input', calculateAndDisplayResult);
+    inputNacelle2.addEventListener('input', calculateAndDisplayResult);
+    inputEauPure.addEventListener('input', calculateAndDisplayResult);
+    inputEauPure2.addEventListener('input', calculateAndDisplayResult);
+    inputBSO.addEventListener('input', calculateAndDisplayResult);
+    inputBSO2.addEventListener('input', calculateAndDisplayResult);
     inputKm.addEventListener('input', updateTotalDepense);
     inputKm2.addEventListener('input', updateTotalDepense);
     inputPeage.addEventListener('input', updateTotalDepense);
@@ -208,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.checked) {
                 input.disabled = false;
             }
-            updateTotalFacturation();
+            calculateAndDisplayResult();
         });
     });
 
@@ -218,18 +183,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.checked) {
                 input.disabled = true;
             }
-            updateTotalFacturation();
+            calculateAndDisplayResult();
         });
     });
 
-    
     yesRadios.forEach(yesRadio => {
         yesRadio.addEventListener('change', function() {
             const input = this.closest('.type-list-BSO').querySelector('.currency-input');
             if (this.checked) {
                 input.disabled = false;
             }
-            updateTotalFacturation();
+            calculateAndDisplayResult();
         });
     });
 
@@ -239,10 +203,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.checked) {
                 input.disabled = true;
             }
-            updateTotalFacturation();
+            calculateAndDisplayResult();
         });
     });
 
-    // Appeler calculateAndDisplayResult lors du chargement de la page pour initialiser les valeurs
+    const frequencySelect = document.querySelector('.frequency');
+    if (frequencySelect) {
+        frequencySelect.addEventListener('change', calculateAndDisplayResult);
+    }
     calculateAndDisplayResult();
 });

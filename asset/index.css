@@ -238,5 +238,13 @@ input[type="radio"]:checked + label {
 }
 
 
-.category-list{
+.frequency{
+    height: 25px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.titleTotal{
+    font-size: 24px;
+    font-weight: bold;
 }
