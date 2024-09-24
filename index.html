@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./asset/index.css">
+    <title>Fast Devis</title>
+</head>
+<body>
+    <div class="title-container">
+        <h2 class="title">Fast Devis</h2>
+    </div>
+    <div class="facturation">
+        <div class="bareme-container">
+            <div class="titleBarem">Barème</div>
+            <div class="kilometrage">
+                <div class="category">Kilométrage :</div>
+                <ul class="list">
+                    <li>1 Km = <div class="input-container"><input type="number" id="input-km" class="currency-input"><span class="currency-symbol">€</span></div></li>
+                </ul>
+            </div>
+            <div class="type">
+                <div class="category">Type de nettoyage :</div>
+                <ul class="list">
+                    <li><div class="name-list">Normal :</div><div class="input-container"><input type="number" id="input-normal" class="currency-input normal"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">Corde :</div><div class="input-container"><input type="number" id="input-corde" class="currency-input corde"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">Échelle :</div><div class="input-container"><input type="number" id="input-echelle" class="currency-input echelle"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">Nacelle :</div><div class="input-container"><input type="number" id="input-nacelle" class="currency-input nacelle"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">Perche :</div><div class="input-container"><input type="number" id="input-perche" class="currency-input perche"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">Eau pure :</div><div class="input-container"><input type="number" id="input-eauPure" class="currency-input eauPure"><span class="currency-symbol">€ / m²</span></div></li>
+                    <li><div class="name-list">BSO :</div><div class="input-container"><input type="number" id="input-BSO" class="currency-input BSO"><span class="currency-symbol">€ / m²</span></div></li>
+                </ul>
+            </div>
+        </div>
+        <div class="devis-container">
+            <div class="devis-section devis-section-depense">
+                <div class="titleBarem">Dépense</div>
+                <div class="depense">
+                    <ul class="list">
+                        <li class="depense-list">
+                            Kilomètre : 
+                            <div class="input-container">
+                                <input type="number" id="input-km2"  class="currency-input">
+                                <span class="currency-symbol">km</span>
+                            </div>
+                        </li>
+                        <li class="depense-list">
+                            Péage : 
+                            <div class="input-container">
+                                <input type="number" id="input-peage" class="currency-input">
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="depense-list">
+                            Repas : 
+                            <div class="input-container">
+                                <input type="number" id="input-repas" class="currency-input">
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="depense-list">Location Nacelle : <div class="input-container"><input type="number" id="input-location" class="currency-input"><span class="currency-symbol">€</span></div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="devis-section devis-section-facture">
+                <div class="titleBarem">Facturation</div>
+                <div class="kilometrage">
+                </div>
+                <div class="type">
+                    <div class="category">Type de nettoyage :</div>
+                    Frequence :
+                    <select class="frequency" id="frequency-select">
+                        <option value="1">1 fois</option>
+                        <option value="0.90">2 fois (-10%)</option>
+                        <option value="0.80">3 fois (-20%)</option>
+                        <option value="0.70">4 fois (-30%)</option>
+                        <option value="0.60">5 fois (-40%)</option>
+                        <option value="0.50">6 fois (-50%)</option>
+                    </select>
+                    <ul class="all-list-type">
+                        <li>
+                            <div class="type-list">
+                                <div class="name-list">Normal:</div>
+                                <input type="radio" class="yes-radio" id="normal-yes" name="normal" value="yes">
+                                <label for="normal-yes">oui</label>
+                                <input type="radio" class="no-radio" id="normal-no" name="normal" value="no" checked>
+                                <label for="normal-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input normal2" id="input-normal2" disabled><span class="currency-symbol">m²</span></div>
+                                <input type="checkbox" id="checkbox-normal" class="double-checkbox">
+                                <label for="checkbox-normal">+ Encadrement</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="type-list">
+                                <div class="name-list">Corde:</div>
+                                <input type="radio" class="yes-radio" id="corde-yes" name="corde" value="yes">
+                                <label for="corde-yes">oui</label>
+                                <input type="radio" class="no-radio" id="corde-no" name="corde" value="no" checked>
+                                <label for="corde-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input corde2" id="input-corde2" disabled><span class="currency-symbol">m²</span></div>
+                                <input type="checkbox" id="checkbox-corde" class="double-checkbox">
+                                <label for="checkbox-corde">+ Encadrement</label>
+                            </div> 
+                        </li>
+                        <li>
+                            <div class="type-list">
+                                <div class="name-list">Échelle:</div>
+                                <input type="radio" class="yes-radio" id="echelle-yes" name="echelle" value="yes">
+                                <label for="echelle-yes">oui</label>
+                                <input type="radio" class="no-radio" id="echelle-no" name="echelle" value="no" checked>
+                                <label for="echelle-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input echelle2" id="input-echelle2" disabled><span class="currency-symbol">m²</span></div>
+                                <input type="checkbox" id="checkbox-echelle" class="double-checkbox">
+                                <label for="checkbox-echelle">+ Encadrement</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="type-list">
+                                <div class="name-list">Nacelle:</div>
+                                <input type="radio" class="yes-radio" id="nacelle-yes" name="nacelle" value="yes">
+                                <label for="nacelle-yes">oui</label>
+                                <input type="radio" class="no-radio" id="nacelle-no" name="nacelle" value="no" checked>
+                                <label for="nacelle-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input nacelle2" id="input-nacelle2" disabled><span class="currency-symbol">m²</span></div>
+                                <input type="checkbox" id="checkbox-nacelle" class="double-checkbox">
+                                <label for="checkbox-nacelle">+ Encadrement</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="type-list">
+                                <div class="name-list">Perche:</div>
+                                <input type="radio" class="yes-radio" id="perche-yes" name="perche" value="yes">
+                                <label for="perche-yes">oui</label>
+                                <input type="radio" class="no-radio" id="perche-no" name="perche" value="no" checked>
+                                <label for="perche-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input perche2" id="input-perche2" disabled><span class="currency-symbol">m²</span></div>
+                                <input type="checkbox" id="checkbox-perche" class="double-checkbox">
+                                <label for="checkbox-perche">+ Encadrement</label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="type-list">
+                                <div class="name-list">Eau pure:</div>
+                                <input type="radio" class="yes-radio" id="eau-yes" name="eau" value="yes">
+                                <label for="eau-yes">oui</label>
+                                <input type="radio" class="no-radio" id="eau-no" name="eau" value="no" checked>
+                                <label for="eau-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input eauPure2" id="input-eauPure2" disabled><span class="currency-symbol">m²</span></div>
+                                <input type="checkbox" id="checkbox-eau" class="double-checkbox">
+                                <label for="checkbox-eau">+ Encadrement</label>
+                            </div> 
+                        </li>
+                        <li>
+                            <div class="type-list-BSO">
+                                <div class="name-list">BSO:</div>
+                                <input type="radio" class="yes-radio" id="BSO-yes" name="BSO" value="yes">
+                                <label for="BSO-yes">oui</label>
+                                <input type="radio" class="no-radio" id="BSO-no" name="BSO" value="no" checked>
+                                <label for="BSO-no">non</label>
+                                <div class="input-container"><input type="number" class="currency-input BSO2" id="input-BSO2" disabled><span class="currency-symbol">m²</span></div>
+                            </div> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="devis-section devis-section-total">
+                <div class="titleTotal">TOTAL</div>
+                <div class="total">
+                    <ul class="list">
+                        <li class="total-list">
+                            Dépense: 
+                            <div class="input-container">
+                                <input type="number" placeholder="0,00" class="currency-input total-depense" id="input-total-depense" disabled>
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="total-list">
+                            Facturation: 
+                            <div class="input-container">
+                                <input type="number" placeholder="0,00" class="currency-input total-facturation" id="input-total-facturation" disabled>
+                                <span class="currency-symbol">€</span>
+                            </div>
+                        </li>
+                        <li class="total-list"
+                        >Total: 
+                        <div class="input-container">
+                            <input type="number" placeholder="0,00" class="currency-input total-total" id="input-total-total" disabled>
+                            <span class="currency-symbol">€</span>
+                        </div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./asset/index.js"></script>
+</body>
+</html>

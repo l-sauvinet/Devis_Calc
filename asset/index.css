@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #5C5C5C;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.title {
+    color: white;
+    font-size: 50px;
+}
+
+.facturation {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 100px; /* Espace de 100px entre les modales */
+}
+
+.bareme-container{
+    background-color: white;
+    height: 550px;
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+.devis-container {
+    background-color: white;
+    height: 550px;
+    width: 782px; /* Vous pouvez ajuster la hauteur ici */
+    flex-grow: 1; /* La largeur sera automatique et s'adaptera */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Styles spécifiques pour le contenu de bareme-container */
+.bareme-container .titleBarem {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.bareme-container .kilometrage, 
+.bareme-container .type {
+    margin-bottom: 20px;
+}
+
+.bareme-container .category {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.bareme-container .list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bareme-container .list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.bareme-container .input-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.bareme-container .currency-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.bareme-container .currency-symbol {
+    font-size: 16px;
+}
+
+/* Styles spécifiques pour le contenu de devis-container */
+.devis-container .devis-section {
+    margin-bottom: 20px;
+}
+
+.devis-container .titleBarem {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.devis-container .kilometrage, 
+.devis-container .type {
+    margin-bottom: 20px;
+}
+
+.devis-container .category {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.devis-container .list {
+list-style-type: none;
+padding: 0;
+}
+
+.devis-container .list li {
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+}
+
+.devis-container .input-container {
+display: flex;
+align-items: center;
+margin-left: 10px;
+}
+
+.devis-container .currency-input {
+width: 60px;
+padding: 5px;
+margin-right: 5px;
+}
+
+.devis-container .currency-symbol {
+font-size: 16px;
+}
+
+
+.depense .list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.depense-list{
+    margin-right: 20px;
+}
+
+.type-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.type-list-BSO{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 237px;
+}
+
+.all-list-type{
+    padding-left: 5px;
+    padding-right: 100px;
+    list-style: none;
+}
+
+.total .list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.total-list{
+    margin-right: 50px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.name-list{
+    width: 75px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+/* Style des étiquettes comme des boutons */
+label {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Style des boutons non sélectionnés */
+label[for="normal-yes"],
+label[for="corde-yes"],
+label[for="perche-yes"],
+label[for="echelle-yes"],
+label[for="nacelle-yes"],
+label[for="eau-yes"],
+label[for="cadre-yes"],
+label[for="BSO-yes"],
+label[for="normal-no"],
+label[for="corde-no"],
+label[for="perche-no"],
+label[for="echelle-no"],
+label[for="nacelle-no"],
+label[for="eau-no"],
+label[for="cadre-no"],
+label[for="BSO-no"]{
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Style des boutons sélectionnés */
+input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+
+.frequency{
+    height: 25px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.titleTotal{
+    font-size: 24px;
+    font-weight: bold;
+}
